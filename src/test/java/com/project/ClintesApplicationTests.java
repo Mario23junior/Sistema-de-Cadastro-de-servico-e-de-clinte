@@ -1,13 +1,20 @@
 package com.project;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class ClintesApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
+   
+//	 teste banco de dados
+//	   @Bean	
+//		public CommandLineRunner run(@Autowired ClienteRepository repository) {
+//			return args -> {
+//				Cliente cliente = Cliente.builder().cpf("00000000000").nome("Fulano").build();
+//				repository.save(cliente);
+//				
+//			};
+//		}
+	  
+	 
 
 }
