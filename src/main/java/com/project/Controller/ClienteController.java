@@ -1,9 +1,12 @@
 package com.project.Controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,9 +20,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.project.Repository.ClienteRepository;
 import com.project.model.entity.Cliente;
-
+ 
 @RestController
 @RequestMapping("/api/clientes")
+@CrossOrigin("http://localhost:4200")
 public class ClienteController {
  
 	private final ClienteRepository repository;
@@ -39,7 +43,14 @@ public class ClienteController {
 	//obtendo detalhes cliente por id
 	@GetMapping("{id}")
 	public Cliente obterPorId(@PathVariable Integer id) {
-		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+		return repository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+	}
+	
+	//obtendo todos os clientes por id
+	@GetMapping
+	public List<Cliente> obterTodos() {
+		return repository.findAll();
 	}
 	
 	// deletando clientes por id 

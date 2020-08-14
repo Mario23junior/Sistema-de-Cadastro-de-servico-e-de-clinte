@@ -13,18 +13,18 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 public class InternacionalizacaoConfig {
     
 	@Bean
-	public MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:messages");
-		messageSource.setDefaultEncoding("ISO-8859-1");
-		messageSource.setDefaultLocale(Locale.getDefault());
-		return messageSource;
-	}
-	
-	@Bean
-	public LocalValidatorFactoryBean validatorFactoryBean() {
-		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-		bean.setValidationMessageSource(messageSource());
-		return bean;
-	}
+    public MessageSource messageSource(){
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("ISO-8859-1");
+        messageSource.setDefaultLocale( Locale.getDefault() );
+        return messageSource;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean validatorFactoryBean(){
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }  
 }

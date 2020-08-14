@@ -35,6 +35,6 @@ public class ControllerAdvice {
 		 HttpStatus codigoStatus = ex.getStatus();
 		 ApiErrors apiErrors = new ApiErrors(mensagemErro);
 		 return new ResponseEntity<ApiErrors>(apiErrors, codigoStatus);
-		
+		 
 	}
 }
