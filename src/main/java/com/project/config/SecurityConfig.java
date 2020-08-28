@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.project.service.UsuarioService;
 
+@SuppressWarnings("deprecation")
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
@@ -42,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	 }
 	 
-	@Bean
+ 	@Bean
 	 public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	 }
